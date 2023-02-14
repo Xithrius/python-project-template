@@ -1,37 +1,52 @@
-[[source]]
-name = "pypi"
-url = "https://pypi.org/simple"
-verify_ssl = true
-
 [tool.poetry]
-name = "Python Project Template"
-version = "1.0"
-description = "A template for Python Projects."
-license = "MIT"
+name = "python-project-template"
+version = "0.1.0"
+description = "Discord graphing bot"
 authors = ["Xithrius <xithrius@gmail.com>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
-python = "3.9.5"
+python = "3.10.9"
 
 [tool.poetry.dev-dependencies]
-flake8 = "~=3.9.2"
-flake8-annotations = "~=2.6.2"
-flake8-bugbear = "~=21.4.3"
-flake8-docstrings = "~=1.6.0"
-flake8-import-order = "~=0.18.1"
-flake8-string-format = "~=0.3.0"
-flake8-tidy-imports = "~=4.3.0"
-flake8-todo = "~=0.7"
-pep8-naming = "~=0.11.1"
-pre-commit = "~=2.13.0"
-python-dotenv = "^0.18.0"
-taskipy = "^1.8.1"
-
-[tool.taskipy.tasks]
-start = ""
-lint = "pre-commit run --all-files"
-precommit = "pre-commit install"
+flake8 = "4.0.1"
+flake8-annotations = "2.9.0"
+flake8-bugbear = "22.7.1"
+flake8-docstrings = "1.6.0"
+flake8-string-format = "0.3.0"
+flake8-tidy-imports = "4.8.0"
+flake8-todo = "0.7"
+flake8-isort = "4.1.2.post0"
+pep8-naming = "0.13.1"
+pre-commit = "2.20.0"
+taskipy = "1.10.2"
+black = "22.10.0"
+pyright = "1.1.283"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+start = "python -m project"
+lint = "pre-commit run --all-files"
+precommit = "pre-commit install"
+
+[tool.black]
+line-length = 80
+
+[tool.isort]
+profile = "black"
+multi_line_output = 6
+order_by_type = false
+case_sensitive = true
+combine_as_imports = true
+line_length = 120
+atomic = true
+
+[tool.pyright]
+include = ["project/**/*.py"]
+exclude = ["**/__pycache__"]
+
+typeCheckingMode = "strict"
+# reportMissingTypeStubs = false
