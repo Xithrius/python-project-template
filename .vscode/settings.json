@@ -1,3 +1,17 @@
 {
-  "python.formatting.provider": "black"
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  },
+  "python.formatting.provider": "black",
+  "python.testing.pytestArgs": [
+    "."
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.languageServer": "Pylance"
 }
